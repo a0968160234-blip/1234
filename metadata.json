@@ -1,0 +1,5 @@
+{
+  "name": "Personalized AI Financial Manager",
+  "description": "A comprehensive financial tracker with bank account management, transaction categorization, and AI-powered financial advice using Gemini 3 Pro.",
+  "requestFramePermissions": []
+}
