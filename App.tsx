@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-// Standard modular imports from firebase/auth.
+// Standard modular imports from firebase/auth for authentication lifecycle management.
 import { 
   onAuthStateChanged, 
   signOut 
