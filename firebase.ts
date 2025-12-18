@@ -1,7 +1,11 @@
 
 import { initializeApp, getApps } from 'firebase/app';
-import { getAuth, Auth } from 'firebase/auth';
-import { getFirestore, Firestore } from 'firebase/firestore';
+// Fix: Use import type for Auth and separate value import for getAuth to resolve potential module resolution issues.
+import { getAuth } from 'firebase/auth';
+import type { Auth } from 'firebase/auth';
+// Fix: Use import type for Firestore and separate value import for getFirestore.
+import { getFirestore } from 'firebase/firestore';
+import type { Firestore } from 'firebase/firestore';
 
 // --- 請在此處填寫您的 Firebase 設定 ---
 // 這樣做是為了讓您後續開發更順利，不需透過 GitHub Secrets 管理此部分

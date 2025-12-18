@@ -1,11 +1,8 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-// Standard modular imports from firebase/auth for authentication lifecycle management.
-import { 
-  onAuthStateChanged, 
-  signOut 
-} from 'firebase/auth';
+// Fix: Ensure onAuthStateChanged and signOut are correctly imported from firebase/auth.
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { 
   collection, 
   query, 
@@ -102,8 +99,10 @@ const App: React.FC = () => {
       setUser(null);
       navigate('/login');
     } else {
-      // Use signOut in modular style.
-      await signOut(auth);
+      // Fix: Added safety check for auth instance before calling signOut.
+      if (auth) {
+        await signOut(auth);
+      }
     }
   };
 

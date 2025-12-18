@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-// Modular Auth functions must be imported from firebase/auth.
+// Fix: Ensure modular auth functions are correctly imported from firebase/auth.
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { Mail, Lock, UserPlus, LogIn, AlertCircle } from 'lucide-react';
@@ -32,7 +32,9 @@ const Login: React.FC<LoginProps> = ({ isOffline, setUser }) => {
     }
 
     try {
-      // In Firebase v9+ modular SDK, auth functions take the auth instance as the first parameter.
+      // Fix: Ensure auth is initialized before use to prevent runtime errors and satisfy type safety.
+      if (!auth) throw new Error("Firebase Auth 尚未初始化。");
+      
       if (isRegister) {
         await createUserWithEmailAndPassword(auth, email, password);
       } else {
