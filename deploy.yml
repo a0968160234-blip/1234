@@ -30,8 +30,8 @@ jobs:
 
       - name: Build
         env:
+          # 僅需注入 Gemini API_KEY，Firebase 已在程式碼中設定
           API_KEY: ${{ secrets.API_KEY }}
-          FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
         run: npm run build
 
       - name: Upload artifact
